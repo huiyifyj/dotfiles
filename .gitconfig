@@ -1,0 +1,16 @@
+[user]
+	name = huiyifyj
+	email = jxfengyijie@gmail.com
+	signingkey = D716E4E175BAC435
+
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	interactive = auto
+
+[commit]
+	gpgsign = true
+
+[github]
+	user = huiyifyj
