@@ -17,7 +17,7 @@
 [core]
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+    attributesfile = ~/.gitattributes
     editor = vim
 
 [commit]
