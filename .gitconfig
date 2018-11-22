@@ -1,25 +1,27 @@
 [user]
-	name = huiyifyj
-	email = jxfengyijie@gmail.com
-	signingkey = D716E4E175BAC435
+    name = huiyifyj
+    email = jxfengyijie@gmail.com
+    signingkey = D716E4E175BAC435
 
 [color]
-	ui = true
-	diff = auto
+    ui = true
+    diff = auto
     branch = auto
-	status = auto
-	interactive = auto
+    status = auto
+    interactive = auto
 
 [alias]
     # View the current working tree status using the short format
-	s = status -s
+    s = status -s
 
 [core]
+    # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
     editor = vim
 
 [commit]
-	gpgsign = true
+    gpgsign = true
 
 [github]
-	user = huiyifyj
+    user = huiyifyj
