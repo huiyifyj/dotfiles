@@ -12,6 +12,9 @@ yellow='\e[0;33m'
 plain='\e[0m'
 
 installGit () {
+    # Make sure only root can run our script
+    [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
+
     # Install git
     if [ `whoami` == 'root' ]
     then
