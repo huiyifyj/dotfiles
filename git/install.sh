@@ -28,9 +28,11 @@ moveGitconfig () {
     # Move .gitconfig file to $HOME
     if [ -f $gitconfigFile ]
     then
-        echo -e "${red} 文件存在 ${plain}"
+        echo -e "${red}.gitconfig file already exists in the home directory.${plain}"
     else
-        echo "文件不存在"
+        echo "We can not find .gitconfig file at the home directory."
+        echo "And we will copy file to your home directory."
+        cp `pwd`/.gitconfig $HOME/.gitconfig
     fi
 }
 
