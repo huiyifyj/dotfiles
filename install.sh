@@ -2,6 +2,12 @@
 
 set -e
 
+# Color
+red='\e[1;31m'
+green='\e[1;32m'
+yellow='\e[0;33m'
+plain='\e[0m'
+
 echo "Start to initialize your Linux"
 echo -e "-----------------------------------------------------------\n"
 
@@ -11,7 +17,7 @@ getDistribution () {
     # Every system that we officially support has /etc/os-release
 	if [ -r /etc/os-release ]
     then
-		linux="$(. /etc/os-release && echo "$ID")"
+		linux=$(. /etc/os-release && echo "$ID")
 	fi
 
 	# Returning an empty string here should be alright since the
@@ -23,12 +29,13 @@ getDistribution
 
 initializeConfig () {
     echo "-----------------------------------------------------------"
-    echo "Install git and its configuration file."
+    echo -e "${green} Install git and its configuration file."
 }
 
 if [ ${linux} == "ubuntu" ] || [ ${linux} == "raspbian" ] || [ ${linux} == "debian" ] || [ ${linux} == "deepin" ]
 then
     initializeConfig
 else
-    echo "We can't support your operation system."
+    echo "We only support operation system based on Debian release."
+    echo "You can create pull request if you want to support other os."
 fi
