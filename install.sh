@@ -17,6 +17,8 @@ getDistribution () {
 	if [ -r /etc/os-release ]
     then
 		linuxName=$(. /etc/os-release && echo "$ID")
+    else
+        echo -e "${red}Error${plain}: The file does not exist."
 	fi
 
 	# Returning an empty string here should be alright since the
@@ -31,7 +33,7 @@ initializeConfig () {
     echo -e "${green} Install git and its configuration file."
 }
 
-if [ ${linuxName}=="ubuntu|raspbian|debian|deepin" ]
+if [ ${linuxName}=="ubuntu|debian|raspbian|deepin" ]
 then
     initializeConfig
 else
