@@ -8,5 +8,5 @@ if test ! $(which node)
 then
     echo 'Install node runtime...'
 else
-    npm i -g yarn bower
+    npm i -g yarn bower typescript
 fi
