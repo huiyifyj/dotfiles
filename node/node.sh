@@ -7,4 +7,6 @@ set -e
 if test ! $(which node)
 then
     echo 'Install node runtime...'
+else
+    npm i -g yarn bower
 fi
