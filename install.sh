@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -6,8 +6,9 @@ set -e
 red='\e[1;31m'
 green='\e[1;32m'
 yellow='\e[0;33m'
-plain='\e[0m'
+none='\e[0m'
 
+clear
 echo "Start to initialize your Linux"
 echo -e "\n-----------------------------------------------------------\n"
 
@@ -18,7 +19,7 @@ getDistribution () {
     then
 		linuxName=$(. /etc/os-release && echo "$ID")
     else
-        echo -e "${red}Error${plain}: The file does not exist."
+        echo -e "${red}Error${none}: The file does not exist."
 	fi
 
 	# Returning an empty string here should be alright since the
@@ -37,6 +38,6 @@ if [ ${linuxName}=="ubuntu|debian|raspbian|deepin" ]
 then
     initializeConfig
 else
-    echo "We only support operation system based on Debian release."
+    echo "We only support operation system based on Debian or Arch release."
     echo "You can create pull request if you want to support other os."
 fi
