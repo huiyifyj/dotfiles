@@ -4,41 +4,41 @@ set -e
 
 # Color
 red='\e[1;31m'
-green='\e[0;32m'
+green='\e[1;32m'
 yellow='\e[0;33m'
 none='\e[0m'
 
 # .gitconfig file path
-gitconfigFile="$HOME/.gitconfig"
+zshrcFile="$HOME/.zshrc"
 
-installGit () {
+installZsh () {
     # Make sure only root can run our script
     [[ $EUID -ne 0 ]] && echo -e "[${red}Error${none}] This script must be run as root!" && exit 1
 
     # Install git
     if [ `whoami` == 'root' ]
     then
-        sudo apt install git
+        sudo apt install zsh
     else
-        apt install git
+        apt install zsh
     fi
 }
 
-moveGitconfig () {
+moveZshconfig () {
     # Move .gitconfig file to $HOME
-    if [ -f $gitconfigFile ]
+    if [ -f $zshrcFile ]
     then
-        echo -e "${red}.gitconfig file already exists in the home directory.${none}"
+        echo -e "${red}.zshrc file already exists in the home directory.${none}"
     else
-        echo "We can not find .gitconfig file at the home directory."
+        echo "We can not find .zshrc file at the home directory."
         echo "And we will copy file to your home directory."
-        cp `pwd`/.gitconfig $HOME/.gitconfig
+        cp `pwd`/.zshrc $HOME/.zshrc
     fi
 }
 
-if test ! $(which git)
+if test ! $(which zsh)
 then
-    installGit
+    installZsh
 fi
 
-moveGitconfig
+moveZshconfig
