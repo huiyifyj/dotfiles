@@ -3,17 +3,16 @@
 set -e
 
 # Color
-red='\e[1;31m'
-green='\e[0;32m'
-yellow='\e[0;33m'
-none='\e[0m'
+RED='\e[1;31m'
+GREEN='\e[0;32m'
+NONE='\e[0m'
 
 # .gitconfig file path
 gitconfigFile="$HOME/.gitconfig"
 
 installGit () {
     # Make sure only root can run our script
-    [[ $EUID -ne 0 ]] && echo -e "[${red}Error${none}] This script must be run as root!" && exit 1
+    [[ $EUID -ne 0 ]] && echo -e "[${RED}Error${NONE}] This script must be run as root!" && exit 1
 
     # Install git
     if [ `whoami` == 'root' ]
@@ -28,7 +27,7 @@ moveGitconfig () {
     # Move .gitconfig file to $HOME
     if [ -f $gitconfigFile ]
     then
-        echo -e "${red}.gitconfig file already exists in the home directory.${none}"
+        echo -e "${RED}.gitconfig file already exists in the home directory.${NONE}"
     else
         echo "We can not find .gitconfig file at the home directory."
         echo "And we will copy file to your home directory."
