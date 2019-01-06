@@ -19,6 +19,9 @@
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
     editor = vim
+    # setting for windows os
+	# autocrlf = false
+	# safecrlf = true
 
 [commit]
     gpgsign = true
