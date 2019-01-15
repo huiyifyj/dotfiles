@@ -13,6 +13,8 @@
 [alias]
     # View the current working tree status using the short format
     s = status -s
+    # Create tag with gpgsign
+    t = tag -s
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
@@ -20,8 +22,8 @@
     attributesfile = ~/.gitattributes
     editor = vim
     # setting for windows os
-	# autocrlf = false
-	# safecrlf = true
+    # autocrlf = false
+    # safecrlf = true
 
 [commit]
     gpgsign = true
