@@ -15,6 +15,8 @@
     s = status -s
     # Create tag with gpgsign
     t = tag -s
+    # Switching branch
+    ck = checkout
     # Display log information with graph and color
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
@@ -22,6 +24,7 @@
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
+    # Set vim as the default editor
     editor = vim
     # setting for windows os
     # autocrlf = false
