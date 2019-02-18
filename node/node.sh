@@ -2,11 +2,10 @@
 
 set -e
 
-# Install Node
-
 if test ! $(which node)
 then
     echo 'Install node runtime...'
 else
-    npm i -g yarn bower typescript
+    # Install some package that I personally consider necessary
+    npm i -g yarn bower typescript coffeescript
 fi
