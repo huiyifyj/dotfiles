@@ -10,16 +10,11 @@ NONE='\e[0m'
 # .gitconfig file path
 gitconfigFile="$HOME/.gitconfig"
 
-installGit () {
-    # Make sure only root can run our script
-    [[ $EUID -ne 0 ]] && echo -e "[${RED}Error${NONE}] This script must be run as root!" && exit 1
-
-    # Install git
-    if [ `whoami` == 'root' ]
+detectGit () {
+    # Make sure git is installed
+    if test ! $(which git)
     then
-        sudo apt install git
-    else
-        apt install git
+        echo 'Please install git.' && exit 1
     fi
 }
 
@@ -35,9 +30,8 @@ moveGitconfig () {
     fi
 }
 
-if test ! $(which git)
-then
-    installGit
-fi
+detectGit
 
 moveGitconfig
+
+echo -e "${GREEN}Git have been configured successfully.${NONE}"
