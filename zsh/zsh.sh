@@ -3,42 +3,58 @@
 set -e
 
 # Color
-red='\e[1;31m'
-green='\e[1;32m'
-yellow='\e[0;33m'
-none='\e[0m'
+RED='\e[1;31m'
+GREEN='\e[1;32m'
+YELLOW='\e[0;33m'
+NONE='\e[0m'
 
-# .gitconfig file path
+# .zshrc file path
 zshrcFile="$HOME/.zshrc"
 
-installZsh () {
-    # Make sure only root can run our script
-    [[ $EUID -ne 0 ]] && echo -e "[${red}Error${none}] This script must be run as root!" && exit 1
-
-    # Install git
-    if [ `whoami` == 'root' ]
+deteceZsh () {
+    # Make sure zsh is installed
+    if test ! $(which zsh)
     then
-        sudo apt install zsh
-    else
-        apt install zsh
+        echo -e "${RED}Error${NONE}: Please install zsh." && exit 1
     fi
+}
+
+# Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+installOhMyZsh () {
+    if test $(which curl)
+    then
+        echo -e "${YELLOW}Installing oh-my-zsh.${NONE}"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    elif test $(which wget)
+    then
+        echo -e "${YELLOW}Installing oh-my-zsh.${NONE}"
+        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    else
+        echo -e "${RED}Error${NONE}: Please install curl or wget for oh-my-zsh."
+    fi
+
+    echo -e "${GREEN}Install oh-my-zsh successfully.${NONE}"
 }
 
 moveZshconfig () {
-    # Move .gitconfig file to $HOME
+    # Move .zshrc file to $HOME
     if [ -f $zshrcFile ]
     then
-        echo -e "${red}.zshrc file already exists in the home directory.${none}"
+        echo -e "${RED}.zshrc file already exists in the home directory.${NONE}"
     else
-        echo "We can not find .zshrc file at the home directory."
-        echo "And we will copy file to your home directory."
+        echo -e "${YELLOW}Copying .zshrc file to home directory.${NONE}"
         cp `pwd`/.zshrc $HOME/.zshrc
+        echo -e "${GREEN}Copy .zshrc file successfully.${NONE}"
     fi
 }
 
-if test ! $(which zsh)
-then
-    installZsh
-fi
+deteceZsh
 
 moveZshconfig
+
+if [ ! -d $HOME/.oh-my-zsh ]
+then
+    installOhMyZsh
+fi
+
+echo -e "${GREEN}Zsh and oh-my-zsh have been configured successfully.${NONE}"
