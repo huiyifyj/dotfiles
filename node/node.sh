@@ -2,10 +2,15 @@
 
 set -e
 
+# Should install node first:
+# - 1. Install node by [nvm](https://github.com/creationix/nvm)
+# - 2. Install node manually
+# - 3. Install node by [nodesource](https://nodesource.com/)
+
 if test ! $(which node)
 then
     echo 'Install node runtime...'
 else
-    # Install some package that I personally consider necessary
-    npm i -g yarn bower typescript coffeescript
+    # Install some global package that I personally consider necessary
+    npm i -g yarn bower typescript coffeescript @vue/cli
 fi
