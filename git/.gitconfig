@@ -19,6 +19,8 @@
     ck = checkout
     # Display log information with graph and color
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    # Update all submodules, and init
+    su = submodule update --init --recursive
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
