@@ -3,12 +3,16 @@
 set -e
 
 # Color
-red='\e[1;31m'
-green='\e[1;32m'
-yellow='\e[0;33m'
-none='\e[0m'
+RED='\e[1;31m'
+GREEN='\e[1;32m'
+YELLOW='\e[0;33m'
+NONE='\e[0m'
 
 clear
+
+# Make sure only root can run our script
+[[ $EUID -ne 0 ]] && echo -e "[${RED}Error${NONE}] This script must be run as root!" && exit 1
+
 echo "Start to initialize your Linux"
 echo -e "\n-----------------------------------------------------------\n"
 
