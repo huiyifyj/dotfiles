@@ -36,7 +36,7 @@ export PATH="$RUSTHOME/bin:$PATH"
 # Application in /opt folder
 APP=/opt/app
 
-## Go language ENV PATH
+# Go language ENV PATH
 GOPATH=$HOME/go # go get download path
 GOROOT=$APP/go
 GOPROXY="https://goproxy.io"
@@ -52,9 +52,9 @@ export PATH="$LUAHOME/bin:$PATH"
 # export JAVA_HOME
 # # JDK ENV SETTING
 # export PATH="$JAVA_HOME/bin:$PATH"
-export JAVA_HOME=$APP/jdk/jdk1.8.0_201 
-export JRE_HOME=${JAVA_HOME}/jre  
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib  
+export JAVA_HOME=$APP/jdk/jdk1.8.0_201
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 
 # Gradle ENV setting
