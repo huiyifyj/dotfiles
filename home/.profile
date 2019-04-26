@@ -77,3 +77,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export NVM_DIR="$APP/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Alias command
+# View Active Ports
+alias ssp=ss -lntup
