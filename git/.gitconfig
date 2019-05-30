@@ -35,5 +35,9 @@
 [commit]
     gpgsign = true
 
+# github.com/Microsoft/Git-Credential-Manager-for-Windows
+# [credential]
+    # helper = manager
+
 [github]
     user = huiyifyj
