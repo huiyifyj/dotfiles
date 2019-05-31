@@ -48,8 +48,7 @@ LUAHOME=$APP/lua
 export PATH="$LUAHOME/bin:$PATH"
 
 # # JDK11 env variable
-# JAVA_HOME=$APP/jdk/jdk-11.0.2
-# export JAVA_HOME
+# export JAVA_HOME=$APP/jdk/jdk-11.0.2
 # # JDK ENV SETTING
 # export PATH="$JAVA_HOME/bin:$PATH"
 export JAVA_HOME=$APP/jdk/jdk1.8.0_201
