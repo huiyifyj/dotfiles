@@ -1,3 +1,6 @@
+# 把这个文件复制 GIT 的安装目录的 ./etc/profile.d/ 目录中，并删去原本的该文件
+# Copy this file into $(GIT_HOME)/etc/profile.d/ directory,
+# and delete the original file.
 if test -f /etc/profile.d/git-sdk.sh
 then
 	TITLEPREFIX=SDK-${MSYSTEM#MINGW}
