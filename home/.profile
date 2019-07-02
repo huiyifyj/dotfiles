@@ -78,5 +78,7 @@ export NVM_DIR="$APP/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Alias command
-# View Active Ports
+# View all active ports
 alias ssp=ss -lntup
+# View number of processes running per user
+alias psu=ps hax -o user | sort | uniq -c | sort -hr
