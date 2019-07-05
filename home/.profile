@@ -49,6 +49,12 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 # GOARM=6
 # export GOOS GOARCH GOARM
 
+# nvm, Node Version Manager
+export NVM_DIR="$APP/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Load nvm bash_completion for bash
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Lua env
 LUAHOME=$APP/lua
 export PATH="$LUAHOME/bin:$PATH"
@@ -72,16 +78,6 @@ export PATH="$FLUTTER/bin:$PATH"
 # Flutter setting.
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-
-# Node and npm env
-# NODE=$HOME/node
-# NPM=$HOME/node/npm/bin
-# export PATH=$NODE/bin:$NPM/bin:$PATH
-
-# Node Version Manager, nvm ENV
-export NVM_DIR="$APP/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Alias command
 # View all active ports
