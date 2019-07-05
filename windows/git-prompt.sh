@@ -1,6 +1,6 @@
-# 把这个文件复制 GIT 的安装目录的 ./etc/profile.d/ 目录中，并删去原本的该文件
 # Copy this file into $(GIT_HOME)/etc/profile.d/ directory,
-# and delete the original file.
+# and delete (or rename) the original file.
+
 if test -f /etc/profile.d/git-sdk.sh
 then
 	TITLEPREFIX=SDK-${MSYSTEM#MINGW}
@@ -12,7 +12,7 @@ if test -f ~/.config/git/git-prompt.sh
 then
 	. ~/.config/git/git-prompt.sh
 else
-	PS1='\[\033]0;Bash\007\]'      # 窗口标题
+	PS1='\[\033]0;Bash\007\]'      # windows title
 	PS1="$PS1"'\n'                 # 换行
 	PS1="$PS1"'\[\033[32;1m\]'     # 高亮绿色
 	PS1="$PS1"'➜  '               # unicode 字符，右箭头

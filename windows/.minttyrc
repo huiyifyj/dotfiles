@@ -1,3 +1,5 @@
+# Move the file to your home directory
+
 Columns       = 90
 Rows          = 28
 FontHeight    = 11
@@ -16,6 +18,7 @@ ForegroundColour = 210, 210, 210
 BackgroundColour =   0,  43,  54
 CursorColour     = 255, 175,   0
 IMECursorColour  = 128, 224, 160
+
 # Text color
 Black            =  40,  40,  40
 BoldBlack        =   0,   0,   0
