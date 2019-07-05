@@ -37,16 +37,17 @@ fi
 #   $ sudo chown huiyifyj:huiyifyj -R /opt
 APP=/opt
 
-# Rust and cargo env
-RUSTHOME=$HOME/.cargo
-export PATH="$RUSTHOME/bin:$PATH"
-
 # Go language ENV PATH
-GOPATH=$HOME/go # go get download path
+GOPATH=$HOME/.go # go get download path
 GOROOT=$APP/go
 GOPROXY="https://goproxy.io"
 export GOPATH GOROOT GOPROXY
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+# Go setting for arm (for Raspbian on raspberry pi)
+# GOOS=linux
+# GOARCH=arm
+# GOARM=6
+# export GOOS GOARCH GOARM
 
 # Lua env
 LUAHOME=$APP/lua
