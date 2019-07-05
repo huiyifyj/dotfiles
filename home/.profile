@@ -55,9 +55,16 @@ export NVM_DIR="$APP/nvm"
 # Load nvm bash_completion for bash
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Lua env
-LUAHOME=$APP/lua
-export PATH="$LUAHOME/bin:$PATH"
+# Rust custom installation directory
+# More to https://github.com/rust-lang/rustup.rs/issues/618
+RUSTUP_HOME=$APP/rust/rustup
+CARGO_HOME=$APP/rust/cargo
+export RUSTUP_HOME CARGO_HOME
+# Cargo installation directory
+# More to https://doc.rust-lang.org/cargo/commands/cargo-install.html
+CARGO_INSTALL_ROOT=$APP/rust/cargo-install
+export CARGO_INSTALL_ROOT
+export PATH="$CARGO_HOME/bin:$CARGO_INSTALL_ROOT/bin:$PATH"
 
 # # JDK11 env variable
 # export JAVA_HOME=$APP/jdk/jdk-11.0.2
@@ -71,6 +78,10 @@ export PATH=${JAVA_HOME}/bin:$PATH
 # Gradle ENV setting
 GRADLE=$APP/gradle
 export PATH="$GRADLE/bin:$PATH"
+
+# Lua env
+LUAHOME=$APP/lua
+export PATH="$LUAHOME/bin:$PATH"
 
 # Flutter ENV Setting
 export FLUTTER=$APP/flutter
