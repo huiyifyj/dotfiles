@@ -26,15 +26,17 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Remove comment and warning
-unset _JAVA_OPTIONS
+# Remove comment and warning about java for deepin linux
+# unset _JAVA_OPTIONS
+
+# Application in /opt folder
+# Authorize to non-root user by
+#   $ sudo chown huiyifyj:huiyifyj -R /opt
+APP=/opt
 
 # Rust and cargo env
 RUSTHOME=$HOME/.cargo
 export PATH="$RUSTHOME/bin:$PATH"
-
-# Application in /opt folder
-APP=/opt/app
 
 # Go language ENV PATH
 GOPATH=$HOME/go # go get download path
