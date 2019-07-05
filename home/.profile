@@ -29,6 +29,9 @@ fi
 # Remove comment and warning about java for deepin linux
 # unset _JAVA_OPTIONS
 
+# Fix git error when gpgsign commit for Raspbian linux on raspberry pi
+# export GPG_TTY=$(tty)
+
 # Application in /opt folder
 # Authorize to non-root user by
 #   $ sudo chown huiyifyj:huiyifyj -R /opt
