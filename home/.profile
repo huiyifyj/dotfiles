@@ -73,12 +73,12 @@ export JAVA_HOME
 export PATH=${JAVA_HOME}/bin:$PATH
 
 # Gradle ENV setting
-GRADLE=$APP/gradle
-export PATH="$GRADLE/bin:$PATH"
+GRADLE_HOME=$APP/gradle
+export PATH="$GRADLE_HOME/bin:$PATH"
 
 # Lua env
-LUAHOME=$APP/lua
-export PATH="$LUAHOME/bin:$PATH"
+LUA_HOME=$APP/lua
+export PATH="$LUA_HOME/bin:$PATH"
 
 # Flutter ENV Setting
 export FLUTTER=$APP/flutter
