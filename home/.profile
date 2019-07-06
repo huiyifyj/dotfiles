@@ -66,13 +66,10 @@ CARGO_INSTALL_ROOT=$APP/rust/cargo-install
 export CARGO_INSTALL_ROOT
 export PATH="$CARGO_HOME/bin:$CARGO_INSTALL_ROOT/bin:$PATH"
 
-# # JDK11 env variable
-# export JAVA_HOME=$APP/jdk/jdk-11.0.2
-# # JDK ENV SETTING
-# export PATH="$JAVA_HOME/bin:$PATH"
-export JAVA_HOME=$APP/jdk/jdk1.8.0_201
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+# JDK ENV setting, recommend to use AdoptOpenJDK
+JAVA_HOME=$APP/jdk/jdk8 # JDK8 env variable
+# JAVA_HOME=$APP/jdk/jdk11 # JDK11 env variable
+export JAVA_HOME
 export PATH=${JAVA_HOME}/bin:$PATH
 
 # Gradle ENV setting
