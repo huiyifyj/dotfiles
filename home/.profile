@@ -89,6 +89,6 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 # Alias command
 # View all active ports
-alias ssp=ss -lntup
+alias ssp="ss -lntup"
 # View number of processes running per user
-alias psu=ps hax -o user | sort | uniq -c | sort -hr
+alias psu="ps hax -o user | sort | uniq -c | sort -hr"
