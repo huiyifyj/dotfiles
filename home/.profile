@@ -39,6 +39,10 @@ fi
 #   $ sudo chown huiyifyj:huiyifyj -R /opt
 APP=/opt
 
+# $APP_BIN folder is used to store soft links pointing to executable files
+APP_BIN=$APP/bin
+export PATH="$APP_BIN:$PATH"
+
 # Go language ENV PATH
 GOPATH=$HOME/.go # go get download path
 GOROOT=$APP/go
