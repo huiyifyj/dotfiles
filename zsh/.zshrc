@@ -68,7 +68,6 @@ plugins=(
   nvm
   npm
   yarn
-  bower
   mvn
   gradle
   cargo
