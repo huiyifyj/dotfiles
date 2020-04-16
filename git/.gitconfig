@@ -34,6 +34,8 @@
 
 [commit]
     gpgsign = true
+    # conventional git commit message specification
+    template = ~/.gitmessage
 
 # github.com/Microsoft/Git-Credential-Manager-for-Windows
 # [credential]
@@ -41,3 +43,10 @@
 
 [github]
     user = huiyifyj
+
+# User socks5 proxy
+# [http]
+#     proxy = socks5://127.0.0.1:1080
+# [https]
+#     proxy = socks5://127.0.0.1:1080
+
