@@ -46,7 +46,7 @@ export PATH="$APP_BIN:$PATH"
 # Go language ENV PATH
 GOPATH=$HOME/.go # go get download path
 GOROOT=$APP/go
-GOPROXY="https://goproxy.io"
+GOPROXY="https://goproxy.io,direct"
 export GOPATH GOROOT GOPROXY
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 # Go setting for arm (for Raspbian on raspberry pi)
