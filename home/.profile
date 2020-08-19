@@ -32,6 +32,9 @@ fi
 # unset _JAVA_OPTIONS
 
 # Fix git error when gpgsign commit for Raspbian linux on raspberry pi
+# https://stackoverflow.com/a/42265848
+# If gnupg2 and gpg-agent 2.x are used, be sure to set the environment variable GPG_TTY.
+# See https://www.gnupg.org/(it)/documentation/manuals/gnupg/Common-Problems.html
 # export GPG_TTY=$(tty)
 
 # Application in /opt folder
@@ -108,7 +111,7 @@ alias ssp="ss -lntup"
 # View number of processes running per user
 alias psu="ps hax -o user | sort | uniq -c | sort -hr"
 # Start sslocal process
-alias sss="sslocal -c /opt/shadowsocks.json &"
+alias sss="sslocal -c /opt/shadowsocks-rust/shadowsocks.json &"
 # Kill sslocal process occupying 1080 port
 alias kss="kill $(netstat -nlp | grep :1080 | awk '{print $7}' | awk -F"/" '{print $1}')"
 # Or alias killss="kill $(lsof -i :1080 | grep ss | awk '{print $2}')"
