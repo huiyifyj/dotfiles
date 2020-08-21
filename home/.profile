@@ -62,7 +62,7 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 export NVM_DIR="$APP/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # Load nvm bash_completion for bash
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Rust custom installation directory
 # More to https://github.com/rust-lang/rustup.rs/issues/618

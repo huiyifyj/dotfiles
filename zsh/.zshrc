@@ -65,7 +65,6 @@ ZSH_THEME="spaceship"
 plugins=(
   git
   node
-  nvm
   npm
   yarn
   mvn
