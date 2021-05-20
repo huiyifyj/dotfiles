@@ -3,45 +3,109 @@
 set -e
 
 # Color
-RED='\e[1;31m'
-GREEN='\e[1;32m'
-YELLOW='\e[0;33m'
-NONE='\e[0m'
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+YELLOW='\033[0;33m'
+NONE='\033[0m'
 
-clear
+get_os() {
+    # Cache the output of uname so we don't
+    # have to spawn it multiple times.
+    IFS=" " read -ra uname <<< "$(uname -srm)"
 
-# Make sure only root can run our script
-[[ $EUID -ne 0 ]] && echo -e "[${RED}Error${NONE}] This script must be run as root!" && exit 1
+    OS_NAME="${uname[0]}"
+    KERNEL_VERSION="${uname[1]}"
+    OS_ARCH="${uname[2]}"
 
-echo "Start to initialize your Linux"
-echo -e "\n-----------------------------------------------------------\n"
+    # $OS_NAME is just the output of "uname -s".
+    case $OS_NAME in
+        Linux|GNU*)           OS="Linux";;
+        Darwin)               OS="macOS";;
+        CYGWIN*|MSYS*|MINGW*) OS="Windows";;
+        *)
+            # https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+            printf '%s\n' "[${RED}Error${NONE}] Unknown OS detected: '$OS_NAME', aborting..." >&2
+            exit 1
+        ;;
+    esac
+}
 
-getDistribution () {
+get_distro() {
+    [[ $OS_DISTRO ]] && return
 
-    # Every system that we officially support has /etc/os-release
-	if [ -r /etc/os-release ]
-    then
-		linuxName=$(. /etc/os-release && echo "$ID")
+    case $OS_NAME in
+        Linux)   linux_distro;;
+        Darwin)  OS_DISTRO="macOS";;
+        Windows)
+            OS_DISTRO=$(wmic os get Caption)
+            OS_DISTRO=${OS_DISTRO/Caption}
+            OS_DISTRO=${OS_DISTRO/Microsoft }
+        ;;
+    esac
+}
+
+linux_distro() {
+    # Armbian
+    if [[ -f /etc/armbian-release ]]; then
+        . /etc/armbian-release
+        OS_DISTRO="Armbian"
+
+    elif type -p lsb_release >/dev/null; then
+        OS_DISTRO=$(lsb_release -si)
+
+    elif [[ -f /etc/os-release || \
+            -f /usr/lib/os-release || \
+            -f /etc/openwrt_release || \
+            -f /etc/lsb-release ]]; then
+
+        # Source the os-release file
+        for file in /etc/lsb-release /usr/lib/os-release \
+                    /etc/os-release  /etc/openwrt_release; do
+            source "$file" && break
+        done
+
+        # Format the distro name.
+        OS_DISTRO="${NAME:-${DISTRIB_ID:-${TAILS_PRODUCT_NAME}}}"
+
+    # Android
+    elif [[ -d /system/app/ && -d /system/priv-app ]]; then
+        OS_DISTRO="Android $(getprop ro.build.version.release)"
+
+    # Chrome OS doesn't conform to the /etc/*-release standard.
+    # While the file is a series of variables they can't be sourced
+    # by the shell since the values aren't quoted.
+    elif [[ -f /etc/lsb-release && $(< /etc/lsb-release) == *CHROMEOS* ]]; then
+        OS_DISTRO='Chrome OS'
+
+    # Replace $OS_DISTRO with kernel version $KERNEL_VERSION.
     else
-        echo -e "${red}Error${none}: The file does not exist."
-	fi
+        for release_file in /etc/*-release; do
+            OS_DISTRO+=$(< "$release_file")
+        done
 
-	# Returning an empty string here should be alright since the
-	# case statements don't act unless you provide an actual value
-	echo -e "Your linux distribution is ${linuxName}\n"
+        if [[ -z $distro ]]; then
+            OS_DISTRO=$KERNEL_VERSION
+        fi
+    fi
 }
 
-getDistribution
-
-initializeConfig () {
-    echo -e "-----------------------------------------------------------\n"
-    echo -e "${green} Install git and its configuration file."
+check_root() {
+    # Make sure only root can run our script
+    [[ $EUID -ne 0 ]] && echo -e "[${RED}Error${NONE}] This script must be run as root!" && exit 1
 }
 
-if [ ${linuxName}=="ubuntu|debian|raspbian|deepin" ]
-then
-    initializeConfig
-else
-    echo "We only support operation system based on Debian or Arch release."
-    echo "You can create pull request if you want to support other os."
-fi
+start() {
+    clear
+
+    get_os
+    get_distro
+
+    echo -e "\n-----------------------------------------------------------\n"
+    echo -e " OS:           ${GREEN}$OS_NAME${NONE}"
+    echo -e " Arch:         ${GREEN}$OS_ARCH${NONE}"
+    echo -e " Distribution: ${GREEN}$OS_DISTRO${NONE}"
+    echo -e "\n Start to initialize your os..."
+    echo -e "\n-----------------------------------------------------------\n"
+}
+
+start
