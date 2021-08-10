@@ -19,16 +19,16 @@ deteceZsh () {
     fi
 }
 
-# Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+# Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 installOhMyZsh () {
     if test $(which curl)
     then
         echo -e "${YELLOW}Installing oh-my-zsh.${NONE}"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     elif test $(which wget)
     then
         echo -e "${YELLOW}Installing oh-my-zsh.${NONE}"
-        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+        sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     else
         echo -e "${RED}Error${NONE}: Please install curl or wget for oh-my-zsh."
     fi
