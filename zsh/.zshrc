@@ -79,6 +79,9 @@ plugins=(
   gradle
   cargo
   rust
+  rustup
+  # macos
+  # brew
   golang
   docker
   zsh-syntax-highlighting
