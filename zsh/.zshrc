@@ -77,9 +77,7 @@ plugins=(
   yarn
   mvn
   gradle
-  cargo
   rust
-  rustup
   # macos
   # brew
   golang
