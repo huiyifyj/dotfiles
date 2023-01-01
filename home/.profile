@@ -39,7 +39,7 @@ fi
 
 # Application in /opt folder
 # Authorize to non-root user by
-#   $ sudo chown huiyifyj:huiyifyj -R /opt
+#   $ sudo chown fyj:fyj -R /opt
 APP=/opt
 
 # $APP_BIN folder is used to store soft links pointing to executable files

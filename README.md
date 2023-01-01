@@ -9,6 +9,6 @@ LICENSE: [MIT](https://github.com/huiyifyj/dotfiles/blob/master/LICENSE).
 <br>
 <div align=center>
     <sub>
-        &copy; 2020 | <a href="https://huiyifyj.github.io">Huiyi.FYJ</a>
+        &copy; 2020 | <a href="https://huiyifyj.github.io">Feng.YJ</a>
     </sub>
 </div>
