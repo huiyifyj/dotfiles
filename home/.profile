@@ -112,8 +112,3 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 alias ssp="ss -lntup"
 # View number of processes running per user
 alias psu="ps hax -o user | sort | uniq -c | sort -hr"
-# Start sslocal process
-alias sss="sslocal -c /opt/shadowsocks-rust/shadowsocks.json &"
-# Kill sslocal process occupying 1080 port
-alias kss="kill $(netstat -nlp | grep :1080 | awk '{print $7}' | awk -F"/" '{print $1}')"
-# Or alias killss="kill $(lsof -i :1080 | grep ss | awk '{print $2}')"
