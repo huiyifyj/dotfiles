@@ -117,3 +117,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# dotfiles directory
+DOTFILES_DIR=$HOME/dotfiles
+if [ ! -d $DOTFILES_DIR ]; then
+  DOTFILES_DIR=$HOME/fyj/dotfiles
+fi
+
+# Load the shell dotfiles, and then some:
+# * .env.sh can be used to extend `$PATH` and export environment variables.
+# * .alias.sh can be used to extend or overwrite existing aliases.
+for file in $DOTFILES_DIR/home/.{env,alias}.sh; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
