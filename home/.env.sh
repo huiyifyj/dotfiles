@@ -10,9 +10,8 @@
 # Application in $HOME/app folder
 APP=$HOME/APP
 
-# $APP_BIN folder is used to store soft links pointing to executable files
-APP_BIN=$APP/bin
-export PATH="$APP_BIN:$PATH"
+# $APP/bin folder is used to store soft links pointing to executable files
+export PATH="$APP/bin:$PATH"
 
 # Go language env PATH
 GOPATH=$HOME/.go # go get download path
@@ -24,6 +23,12 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 # GOOS=linux
 # GOARCH=arm64
 # export GOOS GOARCH
+# Use private git server or internal network
+# Refer to https://stackoverflow.com/a/38237165
+# GOPRIVATE="git.fengyj.cn"
+# GONOPROXY="git.fengyj.cn"
+# GONOSUMDB="git.fengyj.cn"
+# export GOPRIVATE GONOPROXY GONOSUMDB
 
 # nvm, Node Version Manager
 export NVM_DIR="$HOME/.nvm"
