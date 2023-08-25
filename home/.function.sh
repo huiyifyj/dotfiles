@@ -5,6 +5,11 @@ function mkd() {
     mkdir -p "$@" && cd "$_";
 }
 
+# Change working directory to the top-most Finder window location
+function cdf() { # short for `cdfinder`
+    cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+}
+
 # Update own dotfiles git repository
 function update_dotfiles() {
     (cd $DOTFILES_DIR && git pull)
@@ -22,4 +27,12 @@ function update_nvm() {
 function update_rust() {
     rustup self update
     rustup update
+}
+
+# restart docker image and remove containers, networks by `docker compose`
+function restart_docker() {
+    for i in "$@"; do
+        docker compose down $i
+        docker compose up -d $i
+    done
 }

@@ -8,9 +8,10 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # docker abbreviation
 alias d="docker"
+alias dc="docker compose"
+
 # git abbreviation
 alias g="git"
-
 # avoid switching to `ghostscript` when using `gs`
 alias gs="g s"
 
