@@ -46,9 +46,6 @@ export RUSTUP_HOME CARGO_HOME
 CARGO_INSTALL_ROOT=$HOME/.rust/cargo-install
 export CARGO_INSTALL_ROOT
 export PATH="$CARGO_HOME/bin:$CARGO_INSTALL_ROOT/bin:$PATH"
-# Rust and rustup mirror setting
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
 # JDK env setting
 # Recommend to use Adoptium Eclipse Temurin (formerly AdoptOpenJDK)

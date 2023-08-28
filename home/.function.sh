@@ -25,6 +25,11 @@ function update_nvm() {
 
 # Update rust toolchain and rustup itself
 function update_rust() {
+    # refer to https://mirrors.ustc.edu.cn/help/rust-static.html
+    if [ ! -d "$HTTP_PROXY" ]; then
+        export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+        export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+    fi
     rustup self update
     rustup update
 }
