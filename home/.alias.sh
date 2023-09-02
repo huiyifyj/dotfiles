@@ -18,7 +18,7 @@ alias gs="g s"
 # Using [lsd](https://github.com/lsd-rs/lsd) instead of `ls`
 if command -v lsd >/dev/null 2>&1; then
     alias ls="lsd"
-    alias ll="lsd -lh"
-    alias la="lsd -al"
+    alias ll="lsd -lh --date='+%Y-%m-%d %H:%M:%S'"
+    alias la="lsd -al --date='+%Y-%m-%d %H:%M:%S'"
     alias lt="lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-glob .git"
 fi
