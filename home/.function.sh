@@ -41,3 +41,10 @@ function restart_docker() {
         docker compose up -d $i
     done
 }
+
+# update all docker images and remove dangling images
+function update_images() {
+    # refer to https://stackoverflow.com/a/48847780/11408830
+    docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
+    docker image prune -f
+}
