@@ -72,3 +72,22 @@ function update_images() {
     docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
     docker image prune -f
 }
+
+# Add specified directory to PATH temporarily if it exists and is not already in PATH
+function add_path {
+    if [ -z "${1}" ]; then
+        echo "no param" && return
+    fi
+    # determine if the path is absolute or relative
+    if [[ "${1}" = /* ]]; then
+        INPUT_DIR="${1}"
+    else
+        INPUT_DIR="$(pwd)/${1}"
+    fi
+    # determine if the path exists and append it to PATH
+    if [[ -d "$INPUT_DIR" ]]; then
+        export PATH="${PATH}:$INPUT_DIR"
+    else
+        echo "not directory"
+    fi
+}
