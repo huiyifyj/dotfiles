@@ -34,6 +34,30 @@ function update_rust() {
     rustup update
 }
 
+# Update golang version to latest
+function update_go() {
+    # refer to https://go.dev/VERSION, use golang.google.cn for China
+    VERSION=$(curl -s 'https://golang.google.cn/VERSION?m=text' | awk 'NR==1 {print}')
+    OS_NAME=`echo $(uname -s) | tr '[:upper:]' '[:lower:]'`
+    OS_ARCH=$(uname -m)
+    case $OS_ARCH in
+        x86_64)  OS_ARCH="amd64";;
+        aarch64) OS_ARCH="arm64";;
+        *)       echo "unknown OS architecture: $OS_ARCH" && return;;
+    esac
+
+    [ -d $GOROOT ] || (echo "not set GOROOT env" && return)
+    (
+        cd $GOROOT/..
+        TMP_DIR=$(pwd)/go-tmp
+        mkdir -p $TMP_DIR
+        curl --fail -sL "https://golang.google.cn/dl/$VERSION.$OS_NAME-$OS_ARCH.tar.gz" | tar -C $TMP_DIR -zxv
+        echo "remove $GOROOT directory" && rm -rf $GOROOT
+        mv $TMP_DIR/go $(pwd)
+        echo "remove $TMP_DIR directory" && rm -rf $TMP_DIR
+    )
+}
+
 # restart docker image and remove containers, networks by `docker compose`
 function restart_docker() {
     for i in "$@"; do
