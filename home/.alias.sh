@@ -22,3 +22,9 @@ if command -v lsd >/dev/null 2>&1; then
     alias la="lsd -al --date='+%Y-%m-%d %H:%M:%S'"
     alias lt="lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-glob .git"
 fi
+
+# macOS has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# macOS has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
