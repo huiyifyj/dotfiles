@@ -74,7 +74,6 @@ plugins=(
   git
   node
   npm
-  yarn
   mvn
   gradle
   rust

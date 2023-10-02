@@ -12,5 +12,5 @@ then
     echo 'Install node runtime...'
 else
     # Install some global package that I personally consider necessary
-    npm i -g yarn bower typescript coffeescript @vue/cli
+    npm i -g typescript coffeescript @vue/cli
 fi
