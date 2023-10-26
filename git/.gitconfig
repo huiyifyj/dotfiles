@@ -1,3 +1,4 @@
+# git global options, refer to https://git-scm.com/docs/git-config
 [user]
     name = huiyifyj
     email = jxfengyijie@gmail.com
@@ -36,6 +37,9 @@
     gpgsign = true
     # conventional git commit message specification
     template = ~/.gitmessage
+
+[tag]
+    gpgSign = true
 
 # github.com/Microsoft/Git-Credential-Manager-for-Windows
 # [credential]
