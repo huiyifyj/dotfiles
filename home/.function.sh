@@ -91,3 +91,30 @@ function add_path {
         echo "not directory"
     fi
 }
+
+function set_proxy() {
+    max_port=65535
+    proxy_url="127.0.0.1:1080"
+    # http(s) proxy
+    if [ -z "${1}" ]; then
+        echo "use default 1080 as http port"
+    else if
+        if [ "${1}" -gt 0 -a "${1}" -lt ${max_port} ] 2>/dev/null; then
+            echo "use specified ${1} as http port"
+            proxy_url="127.0.0.1:${1}"
+        else if
+            echo "use specified ${1} as http proxy url"
+            proxy_url="${1}"
+        fi
+    fi
+    # socks5 proxy
+    socks5_proxy="http://$proxy_url"
+    if [ ! -z "${2}" ]; then
+        echo "use specified ${2} as socks5 proxy"
+        socks5_proxy="socks5://127.0.0.1:${2}"
+    fi
+    # set proxy env
+    export http_proxy="http://${proxy_url}"
+    export https_proxy="http://${proxy_url}"
+    export all_proxy="$socks5_proxy"
+}
