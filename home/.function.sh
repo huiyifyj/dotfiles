@@ -115,6 +115,9 @@ function set_proxy() {
     fi
     # set proxy env
     export http_proxy="http://${proxy_url}"
+    export HTTP_PROXY="http://${proxy_url}"
     export https_proxy="http://${proxy_url}"
+    export HTTPS_PROXY="http://${proxy_url}"
     export all_proxy="$socks5_proxy"
+    export ALL_PROXY="$socks5_proxy"
 }
