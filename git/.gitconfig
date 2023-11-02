@@ -4,25 +4,6 @@
     email = jxfengyijie@gmail.com
     signingkey = 67D4F264AF9D2C4C
 
-[color]
-    ui = true
-    diff = auto
-    branch = auto
-    status = auto
-    interactive = auto
-
-[alias]
-    # View the current working tree status using the short format
-    s = status -s
-    # Create tag with gpgsign
-    t = tag -s
-    # Switching branch
-    ck = checkout
-    # Display log information with graph and color
-    g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    # Update all submodules, and init
-    su = submodule update --init --recursive
-
 [core]
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
@@ -32,6 +13,13 @@
     # setting for windows os
     # autocrlf = false
     # safecrlf = true
+
+[color]
+    ui = true
+    diff = auto
+    branch = auto
+    status = auto
+    interactive = auto
 
 [commit]
     gpgsign = true
@@ -53,3 +41,17 @@
 #     proxy = socks5://127.0.0.1:1080
 # [https]
 #     proxy = socks5://127.0.0.1:1080
+
+[alias]
+    # View the current working tree status using the short format
+    s = status -s
+    # Create tag with gpgsign
+    t = tag -s
+    # Switching branch
+    ck = checkout
+    # Display all branches sorted by last commit date
+    ba = branch -a --sort=-committerdate
+    # Display log information with graph and color
+    g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    # Update all submodules, and init
+    su = submodule update --init --recursive
