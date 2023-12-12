@@ -29,6 +29,10 @@
 [tag]
     gpgSign = true
 
+[push]
+    # Make `git push` push relevant annotated tags when pushing branches out.
+    followTags = true
+
 # github.com/Microsoft/Git-Credential-Manager-for-Windows
 # [credential]
     # helper = manager
