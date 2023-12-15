@@ -19,7 +19,7 @@ alias gs="g s"
 if command -v lsd >/dev/null 2>&1; then
     alias ls="lsd"
     alias ll="lsd -lh --date='+%Y-%m-%d %H:%M:%S'"
-    alias la="lsd -al --date='+%Y-%m-%d %H:%M:%S'"
+    alias la="lsd -Alh --date='+%Y-%m-%d %H:%M:%S'"
     alias lt="lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-glob .git"
 fi
 
