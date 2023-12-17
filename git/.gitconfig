@@ -53,6 +53,10 @@
     t = tag -s
     # Switching branch
     ck = checkout
+    # Show difference between working tree and the index
+    d = diff
+    # Show difference except for untracked files
+    dc = diff --cached
     # Display all branches sorted by last commit date
     ba = branch -a --sort=-committerdate
     # Display log information with graph and color
