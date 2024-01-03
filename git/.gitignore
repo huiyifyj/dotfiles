@@ -1,0 +1,26 @@
+# vscode
+.vscode
+
+# vim and swap
+.vim
+*.swp
+
+# IntelliJ
+*.iml
+.idea
+
+# Go Modules
+go.sum
+
+# rust cargo
+Cargo.lock
+
+# node, npm and yarn
+node_modules
+package-lock.json
+.nvmrc
+.npmrc
+yarn.lock
+
+# macOS
+.DS_Store
