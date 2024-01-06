@@ -24,3 +24,20 @@ yarn.lock
 
 # macOS
 .DS_Store
+
+# binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.bin
+
+# database files
+*.db
+*.sqlite
+*.sqlite3
+
+# might appear on external disks
+.Spotlight-V100
+.Trashes
