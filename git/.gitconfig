@@ -26,6 +26,10 @@
     # conventional git commit message specification
     template = ~/.gitmessage
 
+[blame]
+    # specify certain commits that should be ignored in git-blame
+    ignoreRevsFile = ~/.git-blame-ignore-revs
+
 [tag]
     gpgSign = true
 
