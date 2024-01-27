@@ -60,6 +60,12 @@ function update_go() {
 
 # restart docker image and remove containers, networks by `docker compose`
 function dc_restart() {
+    docker_file=$(ls | grep *compose.y*ml)
+    if ! [ -f $docker_file ]; then
+        echo "can't find docker compose file"
+        exist 1
+    fi
+
     for i in "$@"; do
         docker compose down $i
         docker compose up -d $i
