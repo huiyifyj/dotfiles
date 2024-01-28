@@ -122,6 +122,7 @@ DOTFILES_DIR=$HOME/dotfiles
 if [ ! -d $DOTFILES_DIR ]; then
   DOTFILES_DIR=$HOME/fyj/dotfiles
 fi
+export DOTFILES_DIR
 
 # Load the shell dotfiles, and then some:
 # * .env.sh can be used to extend `$PATH` and export environment variables.

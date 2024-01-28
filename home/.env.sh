@@ -1,6 +1,11 @@
 # Remove comment and warning about java for deepin linux
 # unset _JAVA_OPTIONS
 
+if [ -d "$DOTFILES_DIR" ]; then
+    # append bin directory to $PATH
+    export PATH="$DOTFILES_DIR/bin:$PATH"
+fi
+
 # Fix git error when gpgsign commit for Raspbian linux on raspberry pi
 # https://stackoverflow.com/a/42265848
 # If gnupg2 and gpg-agent 2.x are used, be sure to set the environment variable GPG_TTY.
