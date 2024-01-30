@@ -127,3 +127,8 @@ function set_proxy() {
     export all_proxy="$socks5_proxy"
     export ALL_PROXY="$socks5_proxy"
 }
+
+function unset_proxy() {
+    unset http_proxy https_proxy socks_proxy all_proxy
+    unset HTTP_PROXY HTTPS_PROXY SOCKS_PROXY ALL_PROXY
+}
