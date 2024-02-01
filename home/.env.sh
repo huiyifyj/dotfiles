@@ -1,6 +1,3 @@
-# Remove comment and warning about java for deepin linux
-# unset _JAVA_OPTIONS
-
 if [ -d "$DOTFILES_DIR" ]; then
     # append bin directory to $PATH
     export PATH="$DOTFILES_DIR/bin:$PATH"
