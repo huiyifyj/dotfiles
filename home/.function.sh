@@ -15,7 +15,12 @@ function update_dotfiles() {
     (cd $DOTFILES_DIR && git pull)
 }
 
+# Update nvm and load it
 function update_nvm() {
+    if [ ! -d "$NVM_DIR" ]; then
+        echo "nvm is not installed" && return
+    fi
+
     (
         cd "$NVM_DIR"
         git fetch --tags origin
@@ -94,7 +99,7 @@ function add_path {
     if [[ -d "$INPUT_DIR" ]]; then
         export PATH="${PATH}:$INPUT_DIR"
     else
-        echo "not directory"
+        echo "the path is not exist or not a directory"
     fi
 }
 
