@@ -3,7 +3,8 @@
 Columns       = 90
 Rows          = 28
 FontHeight    = 11
-Font          = Consolas
+# Font        = Consolas
+Font          = FiraCode Nerd Font
 Locale        = zh_CN
 Charset       = UTF-8
 Language      = zh_CN
