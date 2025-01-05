@@ -10,6 +10,6 @@ LICENSE: [MIT](https://github.com/huiyifyj/dotfiles/blob/main/LICENSE)
 <br>
 <div align=center>
     <sub>
-        &copy; 2024 &nbsp; | &nbsp; <a href="https://huiyifyj.github.io">Feng.YJ</a>
+        &copy; 2025 &nbsp; | &nbsp; <a href="https://huiyifyj.github.io">Feng.YJ</a>
     </sub>
 </div>
