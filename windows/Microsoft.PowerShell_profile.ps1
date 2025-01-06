@@ -10,6 +10,9 @@ Set-Alias -Name g -Value git
 Function Git-Status { git s $args }
 Set-Alias -Name gs -Value Git-Status
 
+# Use `curl`, not the `Invoke-WebRequest` alias
+Remove-Item Alias:curl
+
 # Override ls with `lsd`
 Set-Alias -Name ls -Value lsd -Option AllScope
 Function Lsd-Long { lsd -lh --date='+%Y-%m-%d %H:%M:%S' $args }
