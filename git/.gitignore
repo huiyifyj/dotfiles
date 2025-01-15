@@ -5,7 +5,7 @@
 .vim
 *.swp
 
-# IntelliJ
+# JetBrains IDEs
 *.iml
 .idea
 
@@ -15,12 +15,13 @@ go.sum
 # rust cargo
 Cargo.lock
 
-# node, npm and yarn
+# node, npm, yarn, pnpm
 node_modules
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
 .nvmrc
 .npmrc
-yarn.lock
 
 # macOS
 .DS_Store
