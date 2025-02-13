@@ -1,5 +1,10 @@
 # The profile script for PowerShell.
 # Copy this file to `$PROFILE` if it doesn't exist.
+# Use the following command to find the location of `$PROFILE`:
+# ```
+# $PROFILE | Select-Object *
+# ```
+# ref: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.5#the-profile-variable
 
 # Set the prompt to Starship
 # ref: https://github.com/starship/starship
@@ -10,8 +15,13 @@ Set-Alias -Name g -Value git
 Function Git-Status { git s $args }
 Set-Alias -Name gs -Value Git-Status
 
-# Use `curl`, not the `Invoke-WebRequest` alias
-Remove-Item Alias:curl
+# WindowsPowerShell specific settings
+if ($PSVersionTable.PSEdition -eq 'Desktop') {
+    # Remove the built-in alias to use the `curl` command
+    # WindowsPowerShell built-in `curl` is an alias for `Invoke-WebRequest`,
+    # but the alias is not defined in PowerShell Core
+    Remove-Item Alias:curl
+}
 
 # Override ls with `lsd`
 Set-Alias -Name ls -Value lsd -Option AllScope
