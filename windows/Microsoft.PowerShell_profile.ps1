@@ -21,6 +21,13 @@ if ($PSVersionTable.PSEdition -eq 'Desktop') {
     # WindowsPowerShell built-in `curl` is an alias for `Invoke-WebRequest`,
     # but the alias is not defined in PowerShell Core
     Remove-Item Alias:curl
+    # built-in `wget` is also an alias for `Invoke-WebRequest`,
+    # and only defined in WindowsPowerShell like `curl`
+    Remove-Item Alias:wget
+
+    # Remind switching to PowerShell Core (pwsh) in terminal
+    # Just a reminder, not enforced
+    Write-Host "Please use pwsh in terminal" -BackgroundColor Yellow -ForegroundColor Red
 }
 
 # Override ls with `lsd`
