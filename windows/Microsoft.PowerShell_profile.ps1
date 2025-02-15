@@ -15,16 +15,13 @@ Set-Alias -Name g -Value git
 Function Git-Status { git s $args }
 Set-Alias -Name gs -Value Git-Status
 
-# WindowsPowerShell specific settings
-if ($PSVersionTable.PSEdition -eq 'Desktop') {
-    # Remove the built-in alias to use the `curl` command
-    # WindowsPowerShell built-in `curl` is an alias for `Invoke-WebRequest`,
-    # but the alias is not defined in PowerShell Core
-    Remove-Item Alias:curl
-    # built-in `wget` is also an alias for `Invoke-WebRequest`,
-    # and only defined in WindowsPowerShell like `curl`
-    Remove-Item Alias:wget
+# Alias is provider specific, so use Test-Path to check if the alias exists
+# ref: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_alias_provider
+# Remove built-in `curl` and `wget` aliases, they are aliases for `Invoke-WebRequest`
+if (Test-Path Alias:curl) { Remove-Item Alias:curl }
+if (Test-Path Alias:wget) { Remove-Item Alias:wget }
 
+if (-Not ($PSVersionTable.PSEdition -eq 'Core')) {
     # Remind switching to PowerShell Core (pwsh) in terminal
     # Just a reminder, not enforced
     Write-Host "Please use pwsh in terminal" -BackgroundColor Yellow -ForegroundColor Red
