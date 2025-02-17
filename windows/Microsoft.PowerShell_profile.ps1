@@ -27,6 +27,16 @@ if (-Not ($PSVersionTable.PSEdition -eq 'Core')) {
     Write-Host "Please use pwsh in terminal" -BackgroundColor Yellow -ForegroundColor Red
 }
 
+# Add aliases, .., ..., ...., ..... to move up directories by levels
+Function Cd-Parent { Set-Location .. }
+Set-Alias -Name .. -Value Cd-Parent
+Function Cd-Parent-Twice { Set-Location ../.. }
+Set-Alias -Name ... -Value Cd-Parent-Twice
+Function Cd-Parent-Thrice { Set-Location ../../.. }
+Set-Alias -Name .... -Value Cd-Parent-Thrice
+Function Cd-Parent-Four { Set-Location ../../../.. }
+Set-Alias -Name ..... -Value Cd-Parent-Four
+
 # Override ls with `lsd`
 Set-Alias -Name ls -Value lsd -Option AllScope
 Function Lsd-Long { lsd -lh --date='+%Y-%m-%d %H:%M:%S' $args }
