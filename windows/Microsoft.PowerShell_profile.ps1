@@ -63,6 +63,17 @@ Function Split-Path {
 }
 Set-Alias -Name path -Value Split-Path
 
+# Add `debase64` and `base64` aliases to decode and encode strings
+# Decode-Base64 and Encode-Base64 functions
+Function Decode-Base64() {
+    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($args))
+}
+Set-Alias -Name debase64 -Value Decode-Base64
+Function Encode-Base64() {
+    [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($args))
+}
+Set-Alias -Name base64 -Value Encode-Base64
+
 # Update rust toolchain and rustup itself
 Function Update-Rust() {
     rustup self update
