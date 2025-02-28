@@ -56,20 +56,41 @@ Function Docker-Compose { echo $args }
 Set-Alias -Name dc -Value Docker-Compose
 
 # Print each PATH entry on a separate line
-Function Split-Path {
-    $env:PATH.split(';') | ForEach-Object {
-        Write-Output $_
+function Get-Path() {
+    # Machine Path
+    $machinePath = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
+    Write-Host "Machine Path:" -ForegroundColor Red
+    $machinePath -split ";" | ForEach-Object {
+        if (-Not [string]::IsNullOrWhiteSpace($_)) {
+            Write-Output $_
+        }
+    }
+    # User Path
+    $userPath = [System.Environment]::GetEnvironmentVariable("Path", "User")
+    Write-Host "User Path:" -ForegroundColor Green
+    $userPath -split ";" | ForEach-Object {
+        if (-Not [string]::IsNullOrWhiteSpace($_)) {
+            Write-Output $_
+        }
     }
 }
-Set-Alias -Name path -Value Split-Path
+Set-Alias -Name path -Value Get-Path
 
 # Add `debase64` and `base64` aliases to decode and encode strings
 # Decode-Base64 and Encode-Base64 functions
 Function Decode-Base64() {
+    if (-Not ($args.Count -eq 1)) {
+        Write-Host "Argument must be a single string"
+        return
+    }
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($args))
 }
 Set-Alias -Name debase64 -Value Decode-Base64
 Function Encode-Base64() {
+    if (-Not ($args.Count -eq 1)) {
+        Write-Host "Argument must be a single string"
+        return
+    }
     [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($args))
 }
 Set-Alias -Name base64 -Value Encode-Base64
