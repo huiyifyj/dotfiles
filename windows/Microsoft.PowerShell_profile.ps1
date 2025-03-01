@@ -56,7 +56,7 @@ Function Docker-Compose { echo $args }
 Set-Alias -Name dc -Value Docker-Compose
 
 # Print each PATH entry on a separate line
-function Get-Path() {
+Function Get-Path() {
     # Machine Path
     $machinePath = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
     Write-Host "Machine Path:" -ForegroundColor Red
@@ -97,6 +97,31 @@ Set-Alias -Name base64 -Value Encode-Base64
 
 # Update rust toolchain and rustup itself
 Function Update-Rust() {
+    $useMirror = $true
+    # Check if specific network adapter is up
+    Get-NetAdapter | Where-Object { $_.Status -eq 'Up' } | ForEach-Object {
+        # TUN/TAP adapter for clash meta mihomo
+        if ($_.Name -Like '*ihomo*' -or $_.InterfaceDescription -Like '*eta*') {
+            Write-Host "Found TUN/TAP adapter: $($_.Name) - $($_.InterfaceDescription)" -ForegroundColor Green
+            Write-Host "Skip setting proxy-related environment variables" -ForegroundColor Green
+            $useMirror = $false
+            return
+        }
+    }
+    # Check if HTTP_PROXY, HTTPS_PROXY, ALL_PROXY environment variables are set
+    if ($env:HTTP_PROXY -or $env:HTTPS_PROXY -or $env:ALL_PROXY) {
+        Write-Host "HTTP_PROXY, HTTPS_PROXY, ALL_PROXY environment variables are set" -ForegroundColor Yellow
+        Write-Host "Skip setting rust and rustup mirror environment variables" -ForegroundColor Yellow
+        $useMirror = $false
+    }
+    # Set rust and rustup mirror environment variables
+    if ($useMirror) {
+        Write-Host "Set rust and rustup mirror environment variables" -ForegroundColor Green
+        # refer to https://mirrors.ustc.edu.cn/help/rust-static.html
+        $env:RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
+        $env:RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
+    }
+    # Update rustup and rust toolchain
     rustup self update
     rustup update
 }
