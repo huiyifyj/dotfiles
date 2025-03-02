@@ -109,7 +109,7 @@ Function Update-Rust() {
         }
     }
     # Check if HTTP_PROXY, HTTPS_PROXY, ALL_PROXY environment variables are set
-    if ($env:HTTP_PROXY -or $env:HTTPS_PROXY -or $env:ALL_PROXY) {
+    if ($useMirror -and ($env:HTTP_PROXY -or $env:HTTPS_PROXY -or $env:ALL_PROXY)) {
         Write-Host "HTTP_PROXY, HTTPS_PROXY, ALL_PROXY environment variables are set" -ForegroundColor Yellow
         Write-Host "Skip setting rust and rustup mirror environment variables" -ForegroundColor Yellow
         $useMirror = $false
