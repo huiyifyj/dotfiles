@@ -126,3 +126,6 @@ Function Update-Rust() {
     rustup update
 }
 Set-Alias -Name update_rust -Value Update-Rust
+
+# Empty the trash (recycle bin)
+Set-Alias -Name emptytrash -Value Clear-RecycleBin
