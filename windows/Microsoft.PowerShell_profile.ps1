@@ -129,3 +129,19 @@ Set-Alias -Name update_rust -Value Update-Rust
 
 # Empty the trash (recycle bin)
 Set-Alias -Name emptytrash -Value Clear-RecycleBin
+
+# Add specified directory to `$env:PATH` temporarily
+Function Add-Path() {
+    if (-Not ($args.Count -eq 1)) {
+        Write-Host "Argument must be a single path" -ForegroundColor Red
+        return
+    }
+    $path = $args[0]
+    if (-Not (Test-Path $path)) {
+        Write-Host "Path does not exist: $path" -ForegroundColor Red
+        return
+    }
+    # TODO: check if the path already exists in PATH
+    $env:Path += ";$path"
+    Write-Host "Added path: $path" -ForegroundColor Green
+}
