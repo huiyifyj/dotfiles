@@ -1,6 +1,6 @@
 # git global options, refer to https://git-scm.com/docs/git-config
 [user]
-    name = huiyifyj
+    name = Feng.YJ
     email = jxfengyijie@gmail.com
     signingkey = 67D4F264AF9D2C4C
 
