@@ -67,3 +67,5 @@
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
     # Update all submodules, and init
     su = submodule update --init --recursive
+    # Show all aliases
+    al = config --get-regexp alias
