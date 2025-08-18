@@ -68,4 +68,4 @@
     # Update all submodules, and init
     su = submodule update --init --recursive
     # Show all aliases
-    al = config --get-regexp alias
+    al = !git config --get-regexp alias | sed 's/^alias\\.//g' | sed 's/[ ]/ = /'
