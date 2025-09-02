@@ -13,6 +13,8 @@
     # setting for windows os
     # autocrlf = false
     # safecrlf = true
+    # use built-in OpenSSH for 1Password SSH agent on Windows
+    # sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 
 [color]
     ui = true
@@ -39,12 +41,13 @@
 
 # github.com/Microsoft/Git-Credential-Manager-for-Windows
 # [credential]
-    # helper = manager
+#     helper = manager
 
 [github]
     user = huiyifyj
 
 # User socks5 proxy
+# more recommend to use TUN/TAP adapter mode for CN network
 # [http]
 #     proxy = socks5://127.0.0.1:1080
 # [https]
