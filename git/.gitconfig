@@ -39,7 +39,8 @@
     # Make `git push` push relevant annotated tags when pushing branches out.
     followTags = true
 
-# github.com/Microsoft/Git-Credential-Manager-for-Windows
+# For Windows, use git-credential-manager to securely store and manage credentials.
+# https://git-scm.com/docs/gitcredentials/2.51.0#_available_helpers
 # [credential]
 #     helper = manager
 
