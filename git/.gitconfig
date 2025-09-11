@@ -59,6 +59,8 @@
     s = status -s
     # Create tag with gpgsign
     t = tag -s
+    # Amend the previous commit without changing its commit message
+    ca = commit --amend --no-edit
     # Switching branch
     ck = checkout
     # Show difference between working tree and the index
