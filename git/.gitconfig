@@ -16,6 +16,9 @@
     # use built-in OpenSSH for 1Password SSH agent on Windows
     # sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 
+[init]
+    defaultBranch = main
+
 [color]
     ui = true
     diff = auto
