@@ -78,3 +78,15 @@
     su = submodule update --init --recursive
     # Show all aliases
     al = !git config --get-regexp alias | sed 's/^alias\\.//g' | sed 's/[ ]/ = /'
+
+# set up URL shortcuts for different git hosting services
+# GitHub
+[url "https://github.com/"]
+    insteadOf = ghh:
+[url "git@github.com"]
+    insteadOf = ghs
+# GitLab
+[url "https://gitlab.com/"]
+    insteadOf = glh:
+[url "git@gitlab.com"]
+    insteadOf = gls
