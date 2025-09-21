@@ -85,6 +85,8 @@
     insteadOf = ghh:
 [url "git@github.com"]
     insteadOf = ghs
+[url "git@github.com:huiyifyj/"]
+    insteadOf = ghme:
 # GitLab
 [url "https://gitlab.com/"]
     insteadOf = glh:
