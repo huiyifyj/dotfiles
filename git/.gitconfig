@@ -92,3 +92,5 @@
     insteadOf = glh:
 [url "git@gitlab.com"]
     insteadOf = gls
+[url "git@gitlab.com:feng-yj/"]
+    insteadOf = glme:
