@@ -15,11 +15,13 @@ go.sum
 # rust cargo
 Cargo.lock
 
-# node, npm, yarn, pnpm
+# nvm, node, npm, yarn, pnpm, bun
 node_modules
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+bun.lock
+bun.lockb
 .nvmrc
 .npmrc
 
