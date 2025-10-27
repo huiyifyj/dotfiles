@@ -31,10 +31,16 @@ bun.lockb
 # binaries for programs and plugins
 *.exe
 *.exe~
+*.bin
+*.out
+*.app
+# static libraries
+*.lib
+*.a
+# shared libraries
 *.dll
 *.so
 *.dylib
-*.bin
 
 # database files
 *.db
