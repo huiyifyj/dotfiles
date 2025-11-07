@@ -8,31 +8,32 @@ GREEN='\e[0;32m'
 YELLOW='\e[0;33m'
 NONE='\e[0m'
 
-# .gitconfig file path
-gitconfigFile="$HOME/.gitconfig"
-
 detectGit () {
     # Make sure git is installed
     if test ! $(which git)
     then
-        echo -e "${RED}Error${NONE}: Please install git." && exit 1
+        echo -e "🚨 ${RED}Error${NONE}: Please install git." && exit 1
     fi
 }
 
-moveGitconfig () {
-    # Move .gitconfig file to $HOME
-    if [ -f $gitconfigFile ]
-    then
-        echo -e "${RED}.gitconfig file already exists in the home directory.${NONE}"
-    else
-        echo -e "${YELLOW}Copying .gitconfig file to home directory.${NONE}"
-        cp `pwd`/.gitconfig $HOME/.gitconfig
-        echo -e "${GREEN}Copy .gitconfig file successfully.${NONE}"
-    fi
+# Move git-related config files to home directory
+# note: param should not contain the dot prefix
+moveGitfile () {
+    for var in $@
+    do
+        if [ -f $HOME/.$var ]
+        then
+            echo -e "✅ ${GREEN}.$var file already exists in the home directory.${NONE}"
+        else
+            echo -e "⏳ ${YELLOW}Copying .$var file to home directory.${NONE}"
+            cp `pwd`/.$var $HOME/.$var
+            echo -e "✅ ${GREEN}Copy .$var file successfully.${NONE}"
+        fi
+    done
 }
 
 detectGit
 
-moveGitconfig
+moveGitfile gitconfig gitignore gitattributes gitmessage
 
-echo -e "${GREEN}Git have been configured successfully.${NONE}"
+echo -e "✅ ${GREEN}Git has been configured successfully.${NONE}"
