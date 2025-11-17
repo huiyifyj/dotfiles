@@ -79,6 +79,17 @@ function dc_restart() {
 
 # update all docker images and remove dangling images
 function update_images() {
+    DOCKER_MAJOR_VERSION=$(docker --version | awk '{print $3}' | tr -d ',' | cut -d'.' -f1)
+
+    # since docker cli version 29.0.0, the output of `docker images` command has been changed,
+    # this function can't match the image name and tag correctly.
+    # refer to https://github.com/docker/cli/discussions/6651
+    if [[ $DOCKER_MAJOR_VERSION -ge 29 ]]; then
+        echo "docker cli output format has changed since version 29.0.0"
+        echo "this function can't match and update images correctly"
+        return
+    fi
+
     # refer to https://stackoverflow.com/a/48847780/11408830
     docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
     docker image prune -f
