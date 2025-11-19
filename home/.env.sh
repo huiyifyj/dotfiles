@@ -9,7 +9,7 @@ fi
 # See https://www.gnupg.org/(it)/documentation/manuals/gnupg/Common-Problems.html
 # export GPG_TTY=$(tty)
 
-# Application in $HOME/app folder
+# Application in `$HOME/APP` folder
 APP=$HOME/APP
 
 # $APP/bin folder is used to store soft links pointing to executable files
