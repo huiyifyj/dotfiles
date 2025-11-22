@@ -60,18 +60,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
 GRADLE_HOME=$APP/gradle
 export PATH="$GRADLE_HOME/bin:$PATH"
 
-# Lua env setting
-LUA_HOME=$APP/lua
-export PATH="$LUA_HOME/bin:$PATH"
-# Download from http://luabinaries.sourceforge.net/download.html
-# Note: if you run `lua -v` display error.
-#   > lua: error while loading shared libraries:
-#     libreadline.so.6: cannot open shared object file: No such file or directory
-# Use the following command line to resolve:
-#   $ cd /lib/x86_64-linux-gnu
-#   $ ln -s libreadline.so.7.0 libreadline.so.6
-# Reference link: https://github.com/electron-userland/electron-builder/issues/993
-
 # Flutter env Setting
 export FLUTTER=$APP/flutter
 export PATH="$FLUTTER/bin:$PATH"
