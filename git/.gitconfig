@@ -35,6 +35,10 @@
     # specify certain commits that should be ignored in git-blame
     ignoreRevsFile = ~/.git-blame-ignore-revs
 
+[mailmap]
+    # Map committer/author names based on global `.mailmap` file.
+    file = ~/.mailmap
+
 [tag]
     gpgSign = true
 
