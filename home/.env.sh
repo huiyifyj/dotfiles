@@ -49,6 +49,10 @@ CARGO_INSTALL_ROOT=$HOME/.rust/cargo-install
 export CARGO_INSTALL_ROOT
 export PATH="$CARGO_HOME/bin:$CARGO_INSTALL_ROOT/bin:$PATH"
 
+# Zig env setting
+ZIG_HOME=$APP/zig
+export PATH="$ZIG_HOME:$PATH"
+
 # JDK env setting
 # Recommend to use Adoptium Eclipse Temurin (formerly AdoptOpenJDK)
 # Download from https://adoptium.net/temurin/releases
