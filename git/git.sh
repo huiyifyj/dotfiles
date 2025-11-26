@@ -34,6 +34,6 @@ moveGitfile () {
 
 detectGit
 
-moveGitfile gitconfig gitignore gitattributes gitmessage
+moveGitfile gitconfig gitignore gitattributes gitmessage mailmap
 
 echo -e "✅ ${GREEN}Git has been configured successfully.${NONE}"

@@ -1,0 +1,19 @@
+# This list is used by git-shortlog to fix a few botched name translations
+# in the git archive, either because the author's full name was messed up
+# and/or not always written the same way, making contributions from the
+# same person appearing not to be so or badly displayed. Also allows for
+# old email addresses to map to new email addresses.
+#
+# For format details, see https://git-scm.com/docs/gitmailmap or `man gitmailmap`.
+#
+# Please keep this list dictionary sorted.
+
+# previous username
+Feng.YJ <jxfengyijie@gmail.com> huiyifyj
+# other email addresses
+Feng.YJ <jxfengyijie@gmail.com> <i@fengyj.cn>
+# GitHub noreply email addresses, refer to:
+# https://docs.github.com/en/account-and-profile/reference/email-addresses-reference#your-noreply-email-address
+Feng.YJ <jxfengyijie@gmail.com> <32027253+huiyifyj@users.noreply.github.com>
+Feng.YJ <jxfengyijie@gmail.com> <huiyifyj@users.noreply.github.com>
+Feng.YJ <jxfengyijie@gmail.com> <32027253@users.noreply.github.com>
