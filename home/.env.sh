@@ -3,6 +3,16 @@ if [ -d "$DOTFILES_DIR" ]; then
     export PATH="$DOTFILES_DIR/bin:$PATH"
 fi
 
+# Set default language and locale,
+# more details to https://wiki.archlinux.org/title/Locale
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+# Set `vim` as default editor
+export EDITOR="vim"
+
 # Fix git error when gpgsign commit for Raspbian linux on raspberry pi
 # https://stackoverflow.com/a/42265848
 # If gnupg2 and gpg-agent 2.x are used, be sure to set the environment variable GPG_TTY.
