@@ -145,3 +145,19 @@ Function Add-Path() {
     $env:Path += ";$path"
     Write-Host "Added path: $path" -ForegroundColor Green
 }
+
+# Update dotfiles git repository
+Function Update-Dotfiles() {
+    if (-Not $env:DOTFILES) {
+        Write-Host "DOTFILES environment variable is not set" -ForegroundColor Red
+        return
+    }
+    if (-Not (Test-Path $env:DOTFILES)) {
+        Write-Host "DOTFILES path does not exist" -ForegroundColor Red
+        return
+    }
+
+    cd $env:DOTFILES
+    git pull
+}
+Set-Alias -Name update_dotfiles -Value Update-Dotfiles
