@@ -125,8 +125,9 @@ fi
 export DOTFILES_DIR
 
 # Load the shell dotfiles, and then some:
-# * .env.sh can be used to extend `$PATH` and export environment variables.
-# * .alias.sh can be used to extend or overwrite existing aliases.
+# - `.env.sh` can be used to extend `$PATH` and export environment variables.
+# - `.alias.sh` can be used to extend or overwrite existing aliases.
+# - `.function.sh` can be used to add custom functions.
 for file in $DOTFILES_DIR/home/.{env,alias,function}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
