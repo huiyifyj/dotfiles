@@ -161,3 +161,7 @@ Function Update-Dotfiles() {
     git pull
 }
 Set-Alias -Name update_dotfiles -Value Update-Dotfiles
+
+# Load vscode shell integration if running in vscode terminal
+# ref: https://code.visualstudio.com/docs/terminal/shell-integration
+if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }

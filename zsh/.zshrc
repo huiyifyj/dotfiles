@@ -132,3 +132,7 @@ for file in $DOTFILES_DIR/home/.{env,alias,function}.sh; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
+
+# Load vscode shell integration if running in vscode terminal.
+# ref: https://code.visualstudio.com/docs/terminal/shell-integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
