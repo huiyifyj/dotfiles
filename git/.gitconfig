@@ -83,7 +83,9 @@
     # Show all aliases
     al = !git config --get-regexp alias | sed 's/^alias\\.//g' | sed 's/[ ]/ = /'
 
-# set up URL shortcuts for different git hosting services
+# set up URL shortcuts for different git hosting services.
+# recommend to set `.ssh/config` for ssh alias as well,
+# and note it's different from git url insteadOf config.
 # GitHub
 [url "https://github.com/"]
     insteadOf = ghh:
