@@ -1,0 +1,7 @@
+# refer to https://docs.github.com/en/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view
+
+# To use this file (requires git 2.23):
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# This's placeholder file for `.git-blame-ignore-revs`, you can add commits
+# that you want to ignore when using `git blame` command.
