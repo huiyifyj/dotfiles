@@ -71,20 +71,20 @@ ZSH_THEME="spaceship"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  node
-  npm
-  mvn
-  gradle
-  rust
-  deno
-  # macos
-  # brew
-  golang
-  docker
-  docker-compose
-  zsh-syntax-highlighting
-  zsh-completions
+    git
+    node
+    npm
+    mvn
+    gradle
+    rust
+    deno
+    # macos
+    # brew
+    golang
+    docker
+    docker-compose
+    zsh-syntax-highlighting
+    zsh-completions
 )
 
 autoload -U compinit && compinit
@@ -120,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
 # dotfiles directory
 DOTFILES_DIR=$HOME/dotfiles
 if [ ! -d $DOTFILES_DIR ]; then
-  DOTFILES_DIR=$HOME/fyj/dotfiles
+    DOTFILES_DIR=$HOME/fyj/dotfiles
 fi
 export DOTFILES_DIR
 
@@ -129,7 +129,7 @@ export DOTFILES_DIR
 # - `.alias.sh` can be used to extend or overwrite existing aliases.
 # - `.function.sh` can be used to add custom functions.
 for file in $DOTFILES_DIR/home/.{env,alias,function}.sh; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
