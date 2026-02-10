@@ -78,6 +78,7 @@
     ba = branch -a --sort=-committerdate
     # Display log information with graph and color
     g = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
+    lg = log --color --graph --stat --date=relative --pretty=format:'%C(yellow bold)%h%Creset%C(white)%d%Creset %s%n%C(blue)%aN <%ae> | %cd%n'
     # Update all submodules, and init
     su = submodule update --init --recursive
     # Show all aliases
