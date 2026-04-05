@@ -165,3 +165,13 @@ Set-Alias -Name update_dotfiles -Value Update-Dotfiles
 # Load vscode shell integration if running in vscode terminal
 # ref: https://code.visualstudio.com/docs/terminal/shell-integration
 if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }
+
+# Load `PSReadLine` module for better command line editing and history
+if (Get-Module -ListAvailable -Name PSReadLine) {
+    Import-Module PSReadLine
+    Set-PSReadLineKeyHandler -Key Tab -Function Complete
+    Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+} else {
+    Write-Host "PSReadLine module not found" -ForegroundColor Yellow
+}
