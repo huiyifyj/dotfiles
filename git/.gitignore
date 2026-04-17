@@ -11,9 +11,11 @@
 
 # Go Modules
 go.sum
+go.work.sum
 
 # rust cargo
 Cargo.lock
+target
 
 # nvm, node, npm, yarn, pnpm, bun
 node_modules
