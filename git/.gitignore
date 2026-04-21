@@ -17,6 +17,10 @@ go.work.sum
 Cargo.lock
 target
 
+# zig
+.zig-cache
+zig-out
+
 # nvm, node, npm, yarn, pnpm, bun
 node_modules
 package-lock.json
