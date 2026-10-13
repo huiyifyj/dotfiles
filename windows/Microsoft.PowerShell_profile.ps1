@@ -51,8 +51,8 @@ Function Lsd-Tree { lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-
 Set-Alias -Name lt -Value Lsd-Tree -Option AllScope
 
 # docker abbreviation
-Set-Alias -Name d -Value docker
-Function Docker-Compose { echo $args }
+Set-Alias -Name d -Value wslc
+Function Docker-Compose { echo "wslc doesn't support compose currently" }
 Set-Alias -Name dc -Value Docker-Compose
 
 # Print each PATH entry on a separate line
