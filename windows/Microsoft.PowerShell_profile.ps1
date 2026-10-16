@@ -41,8 +41,8 @@ Set-Alias -Name ..... -Value Cd-Parent-Four
 Function Cd-Home { Set-Location ~ }
 Set-Alias -Name ~ -Value Cd-Home
 
-# Override ls with `lsd`
-Set-Alias -Name ls -Value lsd -Option AllScope
+# Override ls-based aliases with `lsd`
+Set-Alias -Name l -Value lsd -Option AllScope
 Function Lsd-Long { lsd -lh --date='+%Y-%m-%d %H:%M:%S' $args }
 Set-Alias -Name ll -Value Lsd-Long -Option AllScope
 Function Lsd-All { lsd -Alh --date='+%Y-%m-%d %H:%M:%S' $args }
