@@ -41,14 +41,18 @@ Set-Alias -Name ..... -Value Cd-Parent-Four
 Function Cd-Home { Set-Location ~ }
 Set-Alias -Name ~ -Value Cd-Home
 
-# Override ls-based aliases with `lsd`
-Set-Alias -Name l -Value lsd -Option AllScope
-Function Lsd-Long { lsd -lh --date='+%Y-%m-%d %H:%M:%S' $args }
-Set-Alias -Name ll -Value Lsd-Long -Option AllScope
-Function Lsd-All { lsd -Alh --date='+%Y-%m-%d %H:%M:%S' $args }
-Set-Alias -Name la -Value Lsd-All -Option AllScope
-Function Lsd-Tree { lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-glob .git $args }
-Set-Alias -Name lt -Value Lsd-Tree -Option AllScope
+# Set up ls-based aliases with `lsd`
+if (Get-Command lsd -CommandType Application -ErrorAction SilentlyContinue) {
+    Set-Alias -Name l -Value lsd -Option AllScope
+    Function Lsd-Long { lsd -lh --date='+%Y-%m-%d %H:%M:%S' $args }
+    Set-Alias -Name ll -Value Lsd-Long -Option AllScope
+    Function Lsd-All { lsd -Alh --date='+%Y-%m-%d %H:%M:%S' $args }
+    Set-Alias -Name la -Value Lsd-All -Option AllScope
+    Function Lsd-Tree { lsd -A --tree --depth 2 --ignore-glob node_modules --ignore-glob .git $args }
+    Set-Alias -Name lt -Value Lsd-Tree -Option AllScope
+} else {
+    Write-Warning "lsd command not found, skipping aliases l, ll, la and lt."
+}
 
 # docker abbreviation
 Set-Alias -Name d -Value wslc
