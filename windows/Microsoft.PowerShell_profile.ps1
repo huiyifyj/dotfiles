@@ -54,10 +54,17 @@ if (Get-Command lsd -CommandType Application -ErrorAction SilentlyContinue) {
     Write-Warning "lsd command not found, skipping aliases l, ll, la and lt."
 }
 
-# docker abbreviation
-Set-Alias -Name d -Value wslc
-Function Docker-Compose { echo "wslc doesn't support compose currently" }
-Set-Alias -Name dc -Value Docker-Compose
+# Set up `wslc` aliases aligned with docker commands and abbreviation
+if (Get-Command wslc -CommandType Application -ErrorAction SilentlyContinue) {
+    Set-Alias -Name docker -Value wslc
+    Set-Alias -Name d -Value wslc
+    Function Docker-Compose { echo "wslc doesn't support compose currently" }
+    Set-Alias -Name dc -Value Docker-Compose
+} else {
+    Write-Warning "wslc command not found, skipping aliases docker, d and dc."
+    Write-Output "For more information about wslc, refer to:"
+    Write-Host "https://blogs.windows.com/windowsdeveloper/2026/09/29/wsl-containers-now-generally-available/" -ForegroundColor Cyan
+}
 
 # Print each PATH entry on a separate line
 Function Get-Path() {
