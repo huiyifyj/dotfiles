@@ -21,10 +21,14 @@ Set-Alias -Name gs -Value Git-Status
 if (Test-Path Alias:curl) { Remove-Item Alias:curl }
 if (Test-Path Alias:wget) { Remove-Item Alias:wget }
 
+$env:SHELL = "pwsh" # PowerShell Core
 if (-Not ($PSVersionTable.PSEdition -eq 'Core')) {
     # Remind switching to PowerShell Core (pwsh) in terminal
     # Just a reminder, not enforced
     Write-Host "Please use pwsh in terminal" -BackgroundColor Yellow -ForegroundColor Red
+
+    # Reset SHELL environment variable to indicate Windows PowerShell
+    $env:SHELL = "powershell" # Windows PowerShell
 }
 
 # Add aliases, .., ..., ...., ..... to move up directories by levels
