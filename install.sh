@@ -18,6 +18,7 @@ get_os() {
     OS_ARCH="${uname[2]}"
 
     # $OS_NAME is just the output of "uname -s".
+    # Determine and set the $OS based on the output of `uname -s`.
     case $OS_NAME in
         Linux|GNU*)           OS="Linux";;
         Darwin)               OS="macOS";;
@@ -33,7 +34,7 @@ get_os() {
 get_distro() {
     [[ $OS_DISTRO ]] && return
 
-    case $OS_NAME in
+    case $OS in
         Linux)   linux_distro;;
         Darwin)  OS_DISTRO="macOS";;
         Windows)
@@ -101,7 +102,7 @@ start() {
     get_distro
 
     echo -e "\n-----------------------------------------------------------\n"
-    echo -e " OS:           ${GREEN}$OS_NAME${NONE}"
+    echo -e " OS:           ${GREEN}$OS${NONE}"
     echo -e " Arch:         ${GREEN}$OS_ARCH${NONE}"
     echo -e " Distribution: ${GREEN}$OS_DISTRO${NONE}"
     echo -e "\n Start to initialize your os..."
