@@ -140,3 +140,6 @@ if (Get-Module -ListAvailable -Name PSReadLine) {
 } else {
     Write-Host "PSReadLine module not found" -ForegroundColor Yellow
 }
+
+# Load service management functions
+. "$PSScriptRoot\powershell\Set-Service.ps1"
