@@ -107,6 +107,12 @@ start() {
     echo -e " Distribution: ${GREEN}$OS_DISTRO${NONE}"
     echo -e "\n Start to initialize your os..."
     echo -e "\n-----------------------------------------------------------\n"
+
+    if [ "$OS" = "Windows" ]; then
+        echo -e "❌ ${RED}Windows is not supported by shell scripts${NONE}"
+        echo -e "⚠️ ${YELLOW}Use Powershell instead, by running 'windows/install.ps1'${NONE}"
+        exit 1
+    fi
 }
 
 start
