@@ -38,7 +38,7 @@ get_distro() {
         Linux)   linux_distro;;
         Darwin)  OS_DISTRO="macOS";;
         Windows)
-            OS_DISTRO=$(wmic os get Caption)
+            OS_DISTRO=$(pwsh -Command "(Get-CimInstance Win32_OperatingSystem).Caption")
             OS_DISTRO=${OS_DISTRO/Caption}
             OS_DISTRO=${OS_DISTRO/Microsoft }
         ;;
