@@ -15,6 +15,9 @@
     # safecrlf = true
     # use built-in OpenSSH for 1Password SSH agent on Windows
     # sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+    # use host's ssh.exe for WSL on Windows
+    # refer to https://www.1password.dev/ssh/integrations/wsl#configure-git-to-use-ssh-exe
+    # sshCommand = ssh.exe
 
 [init]
     defaultBranch = main
